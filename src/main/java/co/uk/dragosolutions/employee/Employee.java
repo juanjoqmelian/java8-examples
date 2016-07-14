@@ -19,12 +19,7 @@ public class Employee {
 
     public void apply(EmployeeOperation ...operations) {
         Arrays.asList(operations).stream()
-                .forEach(operation -> {
-                    Employee employee = EmployeeOperation.apply(operation, this);
-                    this.setName(employee.getName());
-                    this.setBaseSalary(employee.getBaseSalary());
-                    this.setTotalSalary(employee.getTotalSalary());
-                });
+                .forEach(operation -> EmployeeOperation.apply(operation, this));
     }
 
     public String getName() {

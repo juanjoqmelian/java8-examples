@@ -14,16 +14,13 @@ public class EmployeeHelper {
         EmployeeOperation addTravelAllowance = (Employee employee) -> {
             final BigDecimal newSalary = employee.getTotalSalary().add(TRAVEL_ALLOWANCE);
             employee.setTotalSalary(newSalary);
-            return employee;
         };
         EmployeeOperation addBenefits = (Employee employee) -> {
             final BigDecimal salaryWithBenefits = employee.getTotalSalary().add(BENEFITS);
             employee.setTotalSalary(salaryWithBenefits);
-            return employee;
         };
         EmployeeOperation convertNameToUppercase = (Employee employee) -> {
             employee.setName(employee.getName().toUpperCase());
-            return employee;
         };
 
         Employee employee = new Employee("John Smith", new BigDecimal("35275.86"));
