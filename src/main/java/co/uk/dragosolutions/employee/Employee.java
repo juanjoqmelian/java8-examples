@@ -2,6 +2,7 @@ package co.uk.dragosolutions.employee;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
+import java.util.function.Predicate;
 
 
 public class Employee {
@@ -21,6 +22,12 @@ public class Employee {
         Arrays.asList(operations).stream()
                 .forEach(operation -> EmployeeOperation.apply(operation, this));
     }
+
+    public boolean is(Predicate<Employee>...predicates) {
+        return Arrays.asList(predicates).stream()
+                .allMatch(predicate -> predicate.test(this));
+    }
+
 
     public String getName() {
         return name;
